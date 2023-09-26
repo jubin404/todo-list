@@ -27,6 +27,11 @@ class Todo
   def self.get_task(task_number)
     @@todo_list[task_number]
   end
+
+
+  def self.edit_task(task_number, field, value)
+    @@todo_list[task_number][field] = value
+  end
   
   def self.delete_task(task_number)
     @@todo_list.delete(task_number)
@@ -75,7 +80,19 @@ def edit_task
   puts 'Enter task number'
   task_number = gets.chomp.to_i
 
-  pp Todo.get_task(task_number)
+  puts "\nCurrent task : \n"
+  puts view_task(task_number)
+
+  puts "Which field do you want to update :\n"
+  field = gets.chomp.downcase.squeeze(' ').gsub(/\s/,'_').to_sym
+
+  puts "\nEnter new value :\n"
+  value = gets.chomp
+
+  Todo.edit_task(task_number,field,value)
+
+  puts "\nUpdated task : \n"
+  puts view_task(task_number)
 end
 
 def delete_task
