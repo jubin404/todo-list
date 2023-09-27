@@ -180,10 +180,10 @@ def past_date?(date)
   Time.parse(Time.now.to_s) > Time.parse(date)
 end
 
-puts "\nWelcome to Todo list."
+puts "\nWelcome to Todo list.\n\n"
 
 loop do
-  puts "\nMenu\n----\n"\
+  puts "Menu\n----\n"\
        "1. List All Tasks\n"\
        "2. Display One Task\n"\
        "3. Create Task\n"\
