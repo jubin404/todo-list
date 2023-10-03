@@ -1,5 +1,5 @@
 require 'csv'
-require 'time'
+require 'date'
 
 # Create csv file if it's absent
 unless File.exists?('todo.csv')
@@ -155,7 +155,7 @@ end
 
 # Check if date is valid
 def valid_date?(date)
-  Time.parse(date)
+  Date.parse(date)
   return true
 rescue
   return false
@@ -163,7 +163,7 @@ end
 
 # Check if date is in the past
 def past_date?(date)
-  Time.parse(Time.now.to_s) > Time.parse(date)
+  Date.parse(Time.now.to_s) > Date.parse(date)
 end
 
 # Check if task number is present in the todo list

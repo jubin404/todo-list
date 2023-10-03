@@ -1,4 +1,4 @@
-require 'time'
+require 'date'
 
 class Todo
   @@todo_list = {}
@@ -169,7 +169,7 @@ end
 
 # Check if date is valid
 def valid_date?(date)
-  Time.parse(date)
+  Date.parse(date)
   return true
 rescue
   return false
@@ -177,7 +177,7 @@ end
 
 # Check if date is in the past
 def past_date?(date)
-  Time.parse(Time.now.to_s) > Time.parse(date)
+  Date.parse(Time.now.to_s) > Date.parse(date)
 end
 
 puts "\nWelcome to Todo list.\n\n"

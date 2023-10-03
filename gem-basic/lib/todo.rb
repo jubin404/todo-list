@@ -1,5 +1,5 @@
 class Todo
-  require 'time'
+  require 'date'
 
   @todo_list = {}
   @task_number = 0
@@ -168,7 +168,7 @@ class Todo
 
   # Check if date is valid
   def self.valid_date?(date)
-    Time.parse(date)
+    Date.parse(date)
     true
   rescue
     false
@@ -176,7 +176,7 @@ class Todo
 
   # Check if date is in the past
   def self.past_date?(date)
-    Time.parse(Time.now.to_s) > Time.parse(date)
+    Date.parse(Time.now.to_s) > Date.parse(date)
   end
 
   private_class_method :valid_date?, :past_date?
