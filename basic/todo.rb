@@ -98,7 +98,7 @@ def set_task
   unless due_date.empty?
     return puts "\nInvalid date" unless valid_date?(due_date)
   
-    due_date = Time.parse(due_date).strftime("%d-%m-%Y")
+    due_date = Date.parse(due_date).strftime("%d-%m-%Y")
     return puts "\nDue date cannot be in the past" if past_date?(due_date)
   end
 
@@ -141,9 +141,9 @@ def edit_task
   if field == :due_date && !value.empty?
     return puts "\nInvalid date" unless valid_date?(value)
 
-    value = Time.parse(value).strftime("%d-%m-%Y")
+    value = Date.parse(value).strftime("%d-%m-%Y")
 
-    if Time.parse(value) < Time.parse(Todo.get_task(task_number)[:created_date])
+    if Date.parse(value) < Date.parse(Todo.get_task(task_number)[:created_date])
       return puts "\nDue date cannot be before task created date" 
     end
   end
