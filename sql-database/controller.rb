@@ -102,15 +102,15 @@ class TodoController < TodoModel
   def self.edit_task
     return puts "\nList is empty" if todo.empty?
 
-    puts 'Enter task number'
+    puts "\nEnter task number"
     task_number = gets.chomp.strip.to_i
 
     return puts "\nInvalid task number" unless task_numbers.include?(task_number)
 
-    puts "Selected task\n-------------"
+    puts "\nSelected task\n-------------"
     puts display_task(task_number)
 
-    puts "\nWhich field do you want to update :\n"
+    puts "Which field do you want to update :\n"
     field = gets.chomp.strip.downcase.squeeze(' ').gsub(' ', '_')
 
     return puts "\nCannot edit that field" if %w[task_number created_date].include?(field)
@@ -134,7 +134,7 @@ class TodoController < TodoModel
 
       value = Date.parse(value).strftime('%d-%m-%Y')
 
-      if Date.parse(value) < Date.parse(get_task(task_number)[5])
+      if Date.parse(value) < Date.parse(get_task(task_number).flatten[5])
         return puts "\nDue date cannot be before task created date"
       end
     end
@@ -149,7 +149,7 @@ class TodoController < TodoModel
   def self.remove_task
     return puts "\nList is empty" if todo.empty?
 
-    puts 'Enter task number'
+    puts "\nEnter task number"
     task_number = gets.chomp.strip.to_i
 
     return puts "\nInvalid task number" unless task_numbers.include?(task_number)
