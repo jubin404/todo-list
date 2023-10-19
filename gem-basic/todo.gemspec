@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'todo'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.summary     = 'Gem for performing crud operations on a todo list with some added functionalities'
   s.description = 'A simple Todo list gem. Currently, list attributes are unchangeable.'\
                   'Attributes : task_number, title, description, completed, due_date, created_date'
